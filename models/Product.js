@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-// Modelo para productos 
+// Modelo/Schema para productos 
 
 const productSchema = mongoose.Schema({
     name: {
