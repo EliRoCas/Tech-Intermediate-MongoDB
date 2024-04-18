@@ -18,6 +18,7 @@ app.use(express.json());
 // Configura una ruta para la API de clientes.
 // En este caso, '/api/Clients' apunta a un manejador de rutas que está siendo importado.
 app.use('/apiClients/Clients', require('../routes/RoutesClient'));
+app.use('/apiClients/Products', require('../routes/RoutesProduct'));
 
 
 //Enlazamos conexión a la Base de Datos 
