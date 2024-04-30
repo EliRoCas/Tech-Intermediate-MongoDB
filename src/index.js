@@ -13,6 +13,8 @@ const port = 5000;
 // Permite que Express procese las solicitudes con cuerpo en formato JSON.
 app.use(express.json());
 
+// Habilita CORS para permitir solicitudes desde otros dominios a la aplicación.
+app.use(cors());
 
 // Acá se configuran las rutas de los módulos 
 // Configura una ruta para la API de clientes.
@@ -20,12 +22,24 @@ app.use(express.json());
 app.use('/apiClients/Clients', require('../routes/RoutesClient'));
 app.use('/apiClients/Products', require('../routes/RoutesProduct'));
 
-
 //Enlazamos conexión a la Base de Datos 
 connectDB();
 
-// Habilita CORS para permitir solicitudes desde otros dominios a la aplicación.
-app.use(cors());
+
+// Se habilita CORS para permitir solicitudes desde otros dominios a la aplicación.
+// El cors no debe ir aquí, debe ir siempre antes de las rutas, porque los middlewares se leen como el CSS (cascada)
+// app.use(cors());
+
+// Se configura las opciones de CORS específicas
+// const corsOptions = {
+//     origin: '*', //URL de la aplicación de React 
+//     methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+//     allowedHeaders: 'Content-Type,Authorization',
+// };
+
+// app.use(cors(corsOptions));
+
+
 
 // se configura el puerto que va a tener nuestro servidor
 app.listen(port, () => {
