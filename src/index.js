@@ -9,12 +9,12 @@ const app = express();
 // Define el puerto en el que el servidor escuchará las solicitudes entrantes.
 const port = 5000;
 
+// Habilita CORS para permitir solicitudes desde otros dominios a la aplicación.
+app.use(cors());
+
 // Configura la aplicación para usar JSON. 
 // Permite que Express procese las solicitudes con cuerpo en formato JSON.
 app.use(express.json());
-
-// Habilita CORS para permitir solicitudes desde otros dominios a la aplicación.
-app.use(cors());
 
 // Acá se configuran las rutas de los módulos 
 // Configura una ruta para la API de clientes.
