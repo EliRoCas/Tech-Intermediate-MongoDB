@@ -8,7 +8,7 @@ exports.addProducts = async (req, res) => {
         await products.save();
         res.status(201).send(products);
     } catch (error) {
-        console.log(err);
+        console.log(error);
         res.status(500).send("Hubo un error al agregar el producto");
     }
 }
@@ -20,7 +20,7 @@ exports.getProducts = async (req, res) => {
         let products = await Product.find();
         res.json(products);
     } catch (error) {
-        console.log(err);
+        console.log(error);
         res.status(500).send("Hubo un error al mostrar los productos");
     }
 }
@@ -35,7 +35,7 @@ exports.getProduct = async (req, res) => {
             res.send(products);
         }
     } catch (error) {
-        console.log(err);
+        console.log(error);
         res.status(500).send("Hubo un error al mostrar el producto");
     }
 }
@@ -50,7 +50,7 @@ exports.updateProduct = async (req, res) => {
             res.json(product);
         }
     } catch (error) {
-        console.log(err);
+        console.log(error);
         res.status(500).send("Hubo un error al modificar el producto");
     }
 }
